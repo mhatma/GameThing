@@ -333,9 +333,6 @@ SNAKE.Snake = SNAKE.Snake || (function() {
                 if (me.snakeLength > highScore) {
                     alert('Congratulations! You have beaten your previous high score, which was ' + highScore + '.');
                         localStorage.setItem('jsSnakeHighScore', me.snakeLength);
-
-                    $("#thisPlayersHighScore").val(localStorage.jsSnakeHighScore);
-                    $("#thisPlayersHighScore").click();
                 }
 }
             recordScore();
@@ -616,7 +613,7 @@ SNAKE.Board = SNAKE.Board || (function() {
 
             elmAboutPanel = document.createElement("div");
             elmAboutPanel.className = "snake-panel-component";
-            elmAboutPanel.innerHTML = "";
+            elmAboutPanel.innerHTML = "<a href='http://patorjk.com/blog/software/' class='snake-link'>more patorjk.com apps</a> - <a href='https://github.com/patorjk/JavaScript-Snake' class='snake-link'>source code</a>";
 
             elmLengthPanel = document.createElement("div");
             elmLengthPanel.className = "snake-panel-component";
@@ -666,7 +663,7 @@ SNAKE.Board = SNAKE.Board || (function() {
             if (config.fullScreen) {
                 //fullScreenText = "On Windows, press F11 to play in Full Screen mode.";
             }
-            welcomeTxt.innerHTML = "Snake<p></p>Press Enter to start.<br />Use the <strong>arrow keys</strong> on your keyboard to play. " + fullScreenText + "<p></p>";
+            welcomeTxt.innerHTML = "JavaScript Snake<p></p>Use the <strong>arrow keys</strong> on your keyboard to play the game. " + fullScreenText + "<p></p>";
             var welcomeStart = document.createElement("button");
             welcomeStart.appendChild(document.createTextNode("Play Game"));
             var loadGame = function() {
@@ -830,7 +827,7 @@ SNAKE.Board = SNAKE.Board || (function() {
                 cLeft = 0;
                 cWidth = getClientWidth()-5;
                 cHeight = getClientHeight()-5;
-                document.body.style.backgroundColor = "#2b3343";
+                document.body.style.backgroundColor = "#FC5454";
             } else {
                 cTop = config.top;
                 cLeft = config.left;

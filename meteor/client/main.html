@@ -1,0 +1,67 @@
+<head>
+    <title>SNAKE</title>
+</head>
+<body>
+    {{> leaderboard}}
+</body>
+
+<template name="addPlayerForm">
+
+
+
+    <form>
+        <input type="text" name="playerName">
+        <input type="submit" value="Chat">
+    </form>
+</template>
+
+<template name="leaderboard">
+    <div id="bits">
+        <span id="bitsInner">
+        <h2>SNAKE</h2>
+        <input type="button" id="high-score" value="What's my high score?" /><br />
+        <div id="mode-wrapper" style="">Mode<br /><button id="Easy">Easy</button>&nbsp;<button id="Medium">Medium</button>&nbsp;<button id="Difficult">Difficult</button></div>
+<br /><br />
+
+{{> addPlayerForm}}
+<ul>
+    {{#each player}}
+        <li class="player {{selectedClass}}">{{name}}</li>
+        <script type="text/javascript">
+        var row = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
+        var col = Math.floor(Math.random() * (25 - 1 + 1)) + 1;
+        var selectedPlayer = Session.get('selectedPlayer');
+        //var mySnake = new SNAKE.Snake({playingBoard:mySnakeBoard,startRow:row,startCol:col});
+        </script>
+    {{/each}}
+    {{#if selectedPlayer}}
+        <li><b>Selected: {{selectedPlayer.name}}</b></li>
+        <li>
+            <!--<button class="increment">Give 5 Points</button>
+            <button class="decrement">Take 5 Points</button>-->
+            <button class="remove">Remove</button>
+        </li>
+    {{/if}}
+</ul>
+</span>
+</div>
+{{> game}}
+</template>
+
+
+<template name="game">
+    <div id="info">
+http://10.128.26.102:3000/
+    </div>
+    <div class="nokia">
+
+</div>
+    <link rel=stylesheet id=style type=text/css href="http://10.128.26.102//snake/css/snakey.css?" />
+
+
+    <div id="game-area" tabindex="0">
+    </div>
+
+
+    <input type="hidden" id="thisPlayersHighScore" value="" />
+</template>
